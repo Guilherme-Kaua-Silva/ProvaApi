@@ -1,6 +1,8 @@
 use aiai;
 
-select * from tb_animes;
+select 
+nm_anime anime
+from tb_animes;
 
 insert into tb_animes(nm_anime)
 	values ("dragon ball");

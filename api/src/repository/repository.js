@@ -13,7 +13,9 @@ export async function inserir(anime){
 
 export async function selecionar(anime){
     const comando = `
-    
+    select id_anime,
+    nm_anime anime
+    from tb_animes;
     `
 }
 

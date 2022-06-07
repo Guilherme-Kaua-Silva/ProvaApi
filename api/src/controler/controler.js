@@ -1,1 +1,1 @@
-import {inserir }
+import {inserir, selcionar  } from '../repository/repository.js'

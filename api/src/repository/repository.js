@@ -16,6 +16,9 @@ export async function selecionar(anime){
     select id_anime,
     nm_anime anime
     from tb_animes;
-    `
+    `;
+    const [linha] = await con.query (comando);
+    return linha;
+
 }
 

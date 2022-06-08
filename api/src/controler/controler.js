@@ -5,8 +5,8 @@ import {inserir, selecionar  } from '../repository/repository.js'
 
  server.post('/anime/nome', async (req,resp) => {
     try {
-        const {nome } = req.body;
-        const x = await listarAnimes(nome);
+        const nome = req.body;
+        const x = await inserir(nome);
         resp.send({
             resposta : x
         })
@@ -20,7 +20,7 @@ import {inserir, selecionar  } from '../repository/repository.js'
 
 server.get('/anime', async (req,resp) => {
      try {
-        const x = await anime();
+        const x = await selecionar();
         resp.send(x);          
      } catch (err) {
          resp.status(400).send({

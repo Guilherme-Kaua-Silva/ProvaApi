@@ -7,18 +7,17 @@ export async function inserir(anime){
     insert into tb_animes(nm_anime)
 	values (?); `;
 
-    const [linha] = await con.query(comando[anime.nome]);
+    const [linha] = await con.query(comando,[anime.nome]);
     return linha.affectedRows; 
 }
 
 export async function selecionar(anime){
     const comando = `
-    select id_anime,
+    select id_animes,
     nm_anime anime
     from tb_animes;
     `;
-    const [linha] = await con.query (comando);
+    const [linha] = await con.query(comando);
     return linha;
-
 }
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Consulta from './pages/consultar'
-import Inserir from './pages/cadastrar'
+import Consulta from './pages/cadastrar'
+import Inserir from './pages/consultar'
 
 
-export default function Paths() {
+export default function Routes() {
   return (
     <BrowserRouter>
         <Routes>

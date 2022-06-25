@@ -1,26 +1,46 @@
 import React from 'react'
-import { useState } from 'react'
-import { cadastrarAnime } from '../../api/endpoins';
+import { useState, useEffect } from 'react';
+
+import { consultarAnime } from '../../api/endpoins';
+
 import { Link } from 'react-router-dom';
 
-export default function Inserir() {
-    const [text, setText] = useState('');
+import './cadastrar.scss'
 
-    async function inserir() {
-        if(!text.trim()){
-            alert('Texto invalido');
-        }else{
-            const resposta = await cadastrarAnime(text);
-            setText('');
-            alert('Anime cadastrado');
-        }
+export default function Consulta() {
+    const [animes, setAnimes] = useState([]);
+
+    async function consultarTodos() {
+        const resposta = await consultarAnime() 
+        setAnimes(resposta);       
     }
 
+    useEffect(() => {
+        consultarTodos();
+    }, []);
     return (
-    <div >
-        <input type="text" value={text} onChange={(e)=> setText(e.target.value)} />
-        <button onClick={inserir}> INSERIR </button>
-        <Link to='/'> VOLTAR </Link>
+    <div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        
+                        <th>NOME</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {animes.map((item) => {
+                        return(
+                            <tr>
+                                
+                                <td> {item.nome} </td>
+                            </tr>     
+                        )
+                    })}
+                </tbody>
+            </table>
+            <Link to='/cadastrar' > INSERIR </Link>
+        </div>
     </div>
   )
 }

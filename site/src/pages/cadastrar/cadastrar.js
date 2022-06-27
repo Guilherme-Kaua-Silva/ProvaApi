@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { useState } from 'react'
 import { cadastrarAnime } from '../../api/endpoins';
@@ -13,14 +14,18 @@ export default function Cadastrar() {
             const resposta = await cadastrarAnime(text);
             setText('');
             alert('Anime cadastrado');
+            
         }
+    
     }
 
     return (
     <div >
         <input type="text" value={text} onChange={(e)=> setText(e.target.value)} />
+
         <button onClick={cadastrar}> cadastrar </button>
+
         <Link to='/'> VOLTAR </Link>
     </div>
   )
-}
+};

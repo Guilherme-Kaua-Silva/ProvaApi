@@ -1,15 +1,15 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Consulta from './pages/cadastrar'
-import Inserir from './pages/consultar'
+import Consulta from './pages/consultar/consultar.js'
+import Cadastrar from './pages/cadastrar/cadastrar.js'
 
 
-export default function Routes() {
+export default function Raiz() {
   return (
     <BrowserRouter>
         <Routes>
             <Route exact path='/' element={<Consulta/>}></Route>
-            <Route exact path='/inserir' element={<Inserir/>}></Route>
+            <Route exact path='/cadastrar' element={<Cadastrar/>}></Route>
         </Routes>
     </BrowserRouter>
   )

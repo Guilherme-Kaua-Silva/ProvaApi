@@ -5,13 +5,13 @@ import { consultarAnime } from '../../api/endpoins';
 
 import { Link } from 'react-router-dom';
 
-import './cadastrar.scss'
+import './consultar.scss'
 
 export default function Consulta() {
     const [animes, setAnimes] = useState([]);
 
     async function consultarTodos() {
-        const resposta = await consultarAnime() 
+        const resposta = await consultarAnime()
         setAnimes(resposta);       
     }
 
@@ -29,11 +29,11 @@ export default function Consulta() {
                     </tr>
                 </thead>
                 <tbody>
-                    {animes.map((item) => {
+                    {animes.map((items) => {
                         return(
                             <tr>
                                 
-                                <td> {item.nome} </td>
+                                <td> {items.anime} </td>
                             </tr>     
                         )
                     })}
